@@ -1,0 +1,57 @@
+.notification-board {
+	position: fixed;
+	width: 250px;
+	z-index: 9999;
+}
+.notification-board.top {
+	top: 0;
+}
+.notification-board.right {
+	right: 0;
+}
+.notification-board.bottom {
+	bottom: 0;
+}
+.notification-board.left {
+	left: 0;
+}
+.notification-board > .notification {
+	background: url("black-transparency.png") repeat;
+	border-radius: 5px;
+	color: #fff;
+	padding: 10px;
+	position: relative;
+	
+}
+.notification-board > .notification:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	overflow: hidden;
+}
+.notification-board.top > .notification {
+	margin-top: 10px;
+}
+.notification-board.right > .notification {
+	margin-right: 10px;
+}
+.notification-board.bottom > .notification {
+	margin-bottom: 10px;
+}
+.notification-board.left > .notification {
+	margin-left: 10px;
+}
+.notification-board > .notification > .close {
+	background: url("close.png") no-repeat;
+	height: 24px;
+	position: absolute;
+	right: -8px;
+	top: -8px;
+	width: 24px;
+}
+.notification-board > .notification img {
+	float: left;
+	margin-right: 10px;
+}
