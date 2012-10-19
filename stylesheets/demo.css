@@ -1,7 +1,10 @@
 .demos {
-	list-style: disc inside none;
+	list-style: none;
 	padding-left: 0;
 }
 .demos a {
 	cursor: pointer;
+}
+.demos pre {
+	display: none;
 }

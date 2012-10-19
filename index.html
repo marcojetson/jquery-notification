@@ -5,9 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<title>jquery-notification</title>
 		<link rel="stylesheet" href="stylesheets/styles.css">
-		<link rel="stylesheet" href="stylesheets/notification.css">
 		<link rel="stylesheet" href="stylesheets/demo.css">
 		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
+		<link rel="stylesheet" href="notification.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,21 +28,86 @@
 				</ul>
 			</header>
 			<section>
-				<h2>Demo</h2>
+				<h2>Demos</h2>
 				<ul class="demos">
-					<li><a onclick="Demo.defaults()">Default</a></li>
-					<li><a onclick="Demo.lowerLeftFast()">Lower left 1 second</a></li>
-					<li><a onclick="Demo.image()">Image template</a></li>
-					<li><a onclick="Demo.globalSlowFadeIn()">Slow global fadeIn effect</a></li>
-					<li><a onclick="Demo.globalResetFadeIn()">Reset global fadeIn effect</a></li>
-					<li><a onclick="Demo.limit()">Limit 2 (hit me many times!)</a></li>
-					<li><a onclick="Demo.limitWithQueue()">Limit 2 with queue (hit me many times!)</a></li>
-					<li><a onclick="Demo.sticky()">Sticky</a></li>
-					<li><a onclick="Demo.stickyClose()">Sticky, close on click</a></li>
+					<li>
+						<a>Default</a>
+						<pre><code>$.createNotification({ content: 'Hola mundo!' })</pre></code>
+					</li>
+					<li>
+						<a>Lower left 1 second</a>
+						<pre><code>$.createNotification({
+	horizontal: 'left',
+	vertical: 'bottom',
+	content: 'Hey hey Mar',
+	duration: 1000
+})</pre></code>
+					</li>
+					<li>
+						<a>Image template</a>
+						<pre><code>$.createNotification({
+	content: '&lt;img src="https://twimg0-a.akamaihd.net/profile_images/770845756/45_normal.jpg"&gt; Hi, I\'m GG Allin'
+})</pre></code>
+					</li>
+					<li>
+						<a>Slow global fadeIn effect</a>
+						<pre><code>$.extend($.notificationOptions, {
+	fadeIn: 2000
+})
+$.createNotification({
+	content: 'fadeIn is now set to 2000ms'
+})</pre></code>
+					</li>
+					<li>
+						<a>Reset global fadeIn effect</a>
+						<pre><code>$.extend($.notificationOptions, {
+	fadeIn: 400
+})
+$.createNotification({
+	content: 'fadeIn is now set to 400ms'
+})</pre></code>
+					</li>
+					<li>
+						<a>Limit 2 (hit me many times!)</a>
+						<pre><code>$.createNotification({
+	content: 'Ho ho!',
+	limit: 2,
+	vertical: 'bottom'
+})</pre></code>
+					</li>
+					<li>
+						<a>Limit 2 with queue (hit me many times!)</a>
+						<pre><code>$.createNotification({
+	content: 'ba dum ts!',
+	limit: 2,
+	queue: true,
+	horizontal: 'left'
+})</pre></code>
+					</li>
+					<li>
+						<a>Sticky</a>
+						<pre>$.createNotification({
+	content: 'I\'m not leaving punk',
+	duration: null
+})</pre></code>
+					</li>
+					<li>
+						<a>Sticky, close on click</a>
+						<pre><code>$.createNotification({
+	content: 'I may leave, if you click on me',
+	duration: null,
+	click: function() {
+		this.hide();
+	}
+})</pre></code>
+					</li>
 				</ul>
 				<h2>Installation</h2>
 				<p>Include script after jQuery</p>
 				<pre><code>&lt;script src="jquery.notification.js"&gt;&lt;/script&gt;</code></pre>
+				<p>Include stylesheet</p>
+				<pre><code>&lt;link rel="stylesheet" href="notification.css"&gt;</code></pre>
+				<p>Copy images (using same path of stylesheet)</p>
 				<h2>Usage</h2>
 				<pre><code>$.createNotification(options)</code></pre>
 				<h2>Options</h2>
@@ -72,8 +137,8 @@
 				<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
 			</footer>
 		</div>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script src="javascripts/jquery.notification.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="jquery.notification.js"></script>
 		<script src="javascripts/demo.js"></script>
 		<script src="javascripts/scale.fix.js"></script>
 	</body>
