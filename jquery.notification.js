@@ -5,7 +5,7 @@
 		content: '',
 		duration: 5000,
 		fadeIn: 400,
-		fadeOut: 400,
+		fadeOut: 600,
 		limit: false,
 		queue: false,
 		slideUp: 200,
@@ -13,7 +13,7 @@
 		vertical: 'top'
 	};
 
-	var Notification = function(options) {
+	var Notification = function(board, options) {
 		var that = this;
 		// build notification template
 		var htmlElement = $([
@@ -34,12 +34,13 @@
 				if (queued) {
 					$.createNotification(queued);
 				}
-			}).slideUp(options.slideUp, function() {
+			});
+			htmlElement.slideUp(options.slideUp, function() {
 				$(this).remove();
 			});
 		};
 		// show in board
-		this.show = function(board) {
+		this.show = function() {
 			// append to board and show
 			htmlElement[options.vertical == 'top' ? 'appendTo' : 'prependTo'](board);
 			htmlElement.fadeIn(options.fadeIn);
@@ -51,6 +52,16 @@
 		// helper classes to avoid hide when hover
 		htmlElement.on('mouseenter', function() {
 			htmlElement.addClass('hover');
+			htmlElement.stop(true);
+			if (htmlElement.hasClass('hiding')) {
+				// recover
+				htmlElement.stop(true);
+				// reset slideUp, could not find a better way to achieve this
+				htmlElement.attr('style', 'opacity: ' + htmlElement.css('opacity'));
+				htmlElement.animate({ opacity: 1 }, options.fadeIn);
+				htmlElement.removeClass('hiding');
+				htmlElement.addClass('pending');
+			}
 		});
 		htmlElement.on('mouseleave', function() {
 			if (htmlElement.hasClass('pending')) {
@@ -95,7 +106,7 @@
 			return;
 		}
 		// create new notification and show
-		var notification = new Notification(options)
+		var notification = new Notification(board, options)
 		notification.show(board);
 		return notification;
 	};
