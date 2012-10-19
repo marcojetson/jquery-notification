@@ -2,11 +2,15 @@
 
 A simple and small notification plugin for jQuery.
 
+## Demo
+
+Check out http://marcojetson.github.com/jquery-notification/
+
 ## Installation
 
 Include script after jQuery
 
-    <script src="/jquery.notification.js"></script>
+    <script src="jquery.notification.js"></script>
 
 ## Usage
 
