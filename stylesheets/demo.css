@@ -1,0 +1,7 @@
+.demos {
+	list-style: disc inside none;
+	padding-left: 0;
+}
+.demos a {
+	cursor: pointer;
+}
