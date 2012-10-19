@@ -52,7 +52,6 @@
 		// helper classes to avoid hide when hover
 		htmlElement.on('mouseenter', function() {
 			htmlElement.addClass('hover');
-			htmlElement.stop(true);
 			if (htmlElement.hasClass('hiding')) {
 				// recover
 				htmlElement.stop(true);
