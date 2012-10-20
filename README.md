@@ -12,6 +12,11 @@ Include script after jQuery
 
     <script src="jquery.notification.js"></script>
 
+** License
+
+Licensed under the GPL license
+http://www.gnu.org/licenses/
+
 ## Usage
 
     $.createNotification(options)
