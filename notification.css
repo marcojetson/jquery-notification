@@ -45,6 +45,7 @@
 }
 .notification-board > .notification > .close {
 	background: url("close.png") no-repeat;
+	cursor: pointer;
 	height: 24px;
 	position: absolute;
 	right: -8px;

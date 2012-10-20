@@ -14,8 +14,9 @@ Include script after jQuery
 
 ## License
 
-Licensed under the GPL license
-http://www.gnu.org/licenses/
+Dual licensed under the MIT or GPL Version 2 licenses.
+- http://www.opensource.org/licenses/mit-license.php
+- http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Usage
 
