@@ -12,7 +12,7 @@ Include script after jQuery
 
     <script src="jquery.notification.js"></script>
 
-** License
+## License
 
 Licensed under the GPL license
 http://www.gnu.org/licenses/
