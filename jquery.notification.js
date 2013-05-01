@@ -8,6 +8,7 @@
 ;(function($) {
 
 	$.notificationOptions = {
+		className: '',
 		click: function() {},
 		content: '',
 		duration: 5000,
@@ -24,7 +25,7 @@
 		var that = this;
 		// build notification template
 		var htmlElement = $([
-			'<div class="notification" style="display:none">',
+			'<div class="notification ' + options.className + '" style="display:none">',
 				'<div class="close"></div>',
 				options.content,
 			'</div>'
