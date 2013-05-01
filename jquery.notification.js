@@ -18,7 +18,9 @@
 		queue: false,
 		slideUp: 200,
 		horizontal: 'right',
-		vertical: 'top'
+		vertical: 'top',
+    afterShow: function(){},
+    afterClose: function(){}
 	};
 
 	var Notification = function(board, options) {
@@ -45,13 +47,14 @@
 			});
 			htmlElement.slideUp(options.slideUp, function() {
 				$(this).remove();
+        options.afterClose();
 			});
 		};
 		// show in board
 		this.show = function() {
 			// append to board and show
 			htmlElement[options.vertical == 'top' ? 'appendTo' : 'prependTo'](board);
-			htmlElement.fadeIn(options.fadeIn);
+			htmlElement.fadeIn(options.fadeIn, options.afterShow());
 		};
 		// set custom click callback
 		htmlElement.on('click', function() {
