@@ -16,7 +16,8 @@
 	left: 0;
 }
 .notification-board > .notification {
-	background: url("black-transparency.png") repeat;
+	/* background: url("black-transparency.png") repeat; */
+	background-color: rgba(0,0,0,0.75);
 	border-radius: 5px;
 	color: #fff;
 	padding: 10px;
