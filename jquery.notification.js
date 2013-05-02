@@ -19,6 +19,12 @@
 		slideUp: 200,
 		horizontal: 'right',
 		vertical: 'top',
+		style: {
+			color: "#fff",
+			backgroundColor : "#000",
+			opacity : 0.75
+		},
+
     afterShow: function(){},
     afterClose: function(){}
 	};
@@ -32,6 +38,37 @@
 				options.content,
 			'</div>'
 		].join(''));
+
+		// setting style options
+		if(options.style == undefined) {
+			options.style = $.notificationOptions.style;
+		}
+
+		htmlElement.each(function(){
+			var el = this;
+				el.style.color = options.style.color
+				el.style.background = options.style.backgroundColor;
+
+			if(parseFloat(options.style.opacity) < 1) {
+				var rgba = el.style.backgroundColor;
+					rgba = rgba.toString().replace(")", "," + options.style.opacity+")");
+					rgba = rgba.toString().replace("rgb","rgba");
+			
+				el.style.background = rgba;
+				// ie opacity;
+				/*
+				try {
+					var op   	= parseFloat(options.style.opacity) > 1 ? 1 : options.style.opacity;
+						op   	= parseInt(op*255).toString(16);
+					var iecolor = options.style.backgroundColor.replace("#", "#"+op);
+					el.style.filter = "progid:DXImageTransform.Microsoft.gradient(startColorstr="+ iecolor+",endColorstr="+iecolor+")"; 
+
+				}catch(e) { console.log("ie sucks!"); } 
+				*/
+			}
+		});
+		
+
 		// getter for template
 		this.getHtmlElement = function() {
 			return htmlElement;
